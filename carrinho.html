@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <title>Carrinho | D'La France</title>
+  <meta name="description" content="Carrinho da D'La France com finalização por WhatsApp.">
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#080808">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <div class="announcement"><div class="container"><span>5x sem juros</span><span>Frete grátis acima de R$ 400</span><span>Consultoria pelo WhatsApp</span></div></div>
+  <header class="header">
+    <div class="container header-inner">
+      <a class="logo" href="index.html" aria-label="D'La France"><strong>D'La France</strong><span>Eau de Parfum</span></a>
+      <button class="menu-toggle" data-menu-toggle aria-label="Abrir menu"><span></span><span></span><span></span></button>
+      <nav class="nav" data-nav>
+        <a href="index.html">Início</a><a href="produtos.html">Perfumes</a><a href="produtos.html?categoria=Femininos">Femininos</a><a href="produtos.html?categoria=Masculinos">Masculinos</a><a href="sobre.html">A marca</a>
+      </nav>
+      <div class="header-actions"><a class="header-action" href="#" data-whatsapp><span>WhatsApp</span></a><button class="header-action" data-cart-open><span>Carrinho</span><b data-cart-count>0</b></button></div>
+    </div>
+    <div class="search-strip"><form class="container" data-search-form><input type="search" name="q" placeholder="Buscar por perfume, nota ou estilo"><button type="submit">Buscar</button></form></div>
+  </header>
+  <main>
+<section class="container page-title reveal"><nav class="breadcrumb"><a href="index.html">Início</a><span>/</span><strong>Carrinho</strong></nav><h1>Carrinho</h1><p>Revise os produtos antes de enviar o pedido para o WhatsApp da loja.</p></section>
+<section class="container cart-page"><div class="cart-list reveal"><div class="shipping-progress" data-page-shipping></div><div data-cart-page-items></div><div class="empty-state" data-cart-empty hidden><strong>Seu carrinho está vazio.</strong><p>Escolha um perfume no catálogo.</p></div></div><aside class="cart-summary reveal"><h2>Resumo</h2><div class="summary-line"><span>Subtotal</span><strong data-page-subtotal>R$ 0,00</strong></div><div class="summary-line"><span>Frete</span><strong>A combinar</strong></div><div class="summary-total"><span>Total</span><strong data-page-total>R$ 0,00</strong></div><label class="shipping-card">Observações<textarea rows="4" data-notes placeholder="Retirada, entrega, presente, bairro..."></textarea></label><button class="btn primary full" data-checkout>Finalizar pelo WhatsApp</button><button class="btn line full" data-clear-cart>Limpar carrinho</button><a class="btn line full" href="produtos.html">Continuar comprando</a></aside></section>
+</main>
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div><h2>D'La France</h2><p>Perfumaria com atmosfera escura, elegante e sensorial. Escolha o perfume, monte o carrinho e finalize com atendimento humano pelo WhatsApp.</p></div>
+      <div><h3>Comprar</h3><a href="produtos.html">Todos os perfumes</a><a href="produtos.html?categoria=Femininos">Femininos</a><a href="produtos.html?categoria=Masculinos">Masculinos</a><a href="carrinho.html">Carrinho</a></div>
+      <div><h3>Atendimento</h3><a href="#" data-whatsapp>WhatsApp</a><a href="mailto:contato@dlafrance.com.br">contato@dlafrance.com.br</a><p>Monte Carmelo - MG</p></div>
+      <div><h3>Backend ready</h3><p>Catálogo, carrinho, pedidos e frete separados em módulos para integração com API.</p></div>
+    </div>
+    <div class="footer-bottom"><div class="container"><span>© 2026 D'La France.</span><span>Site preparado para vendas via WhatsApp e backend futuro.</span></div></div>
+  </footer>
+  <aside class="drawer" data-drawer>
+    <div class="drawer-header"><h2>Carrinho</h2><button class="quick-close" data-close-drawer>×</button></div>
+    <div class="drawer-body"><div class="shipping-progress" data-drawer-shipping></div><div data-drawer-items></div></div>
+    <div class="drawer-footer"><div class="drawer-total"><span>Subtotal</span><strong data-drawer-subtotal>R$ 0,00</strong></div><a class="btn line full" href="carrinho.html">Ver carrinho</a><button class="btn primary full" data-drawer-checkout>Finalizar pelo WhatsApp</button></div>
+  </aside>
+  <div class="quick-view" data-quick-view></div><div class="overlay" data-overlay></div><div class="toast" data-toast></div>
+  <script src="assets/js/runtime-config.js"></script><script src="assets/js/config.js"></script><script src="assets/js/products.js"></script><script src="assets/js/api.js"></script><script src="assets/js/cart.js"></script><script src="assets/js/ui.js"></script><script src="assets/js/pages/carrinho.js"></script>
+</body>
+</html>

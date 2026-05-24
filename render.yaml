@@ -1,0 +1,18 @@
+services:
+  - type: web
+    name: dlf-api
+    runtime: node
+    rootDir: backend
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /health
+    envVars:
+      - key: NODE_VERSION
+        value: "20"
+      - key: CORS_ORIGIN
+        value: "https://SEU-FRONTEND.vercel.app"
+      - key: FREE_SHIPPING_FROM
+        value: "400"
+      - key: SHIPPING_BASE
+        value: "19.9"
