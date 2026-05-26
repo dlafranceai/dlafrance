@@ -49,10 +49,16 @@ function initCartPage() {
 
     try {
       const notes = notesField.value;
+      const customer = {
+        name: DLF_UI.$("[data-customer-name]")?.value || "",
+        phone: DLF_UI.$("[data-customer-phone]")?.value || ""
+      };
+
       const order = await DLF_API.createOrder({
         items,
         subtotal: DLF_CART.subtotal(),
         notes,
+        customer,
         channel: "whatsapp"
       });
 
@@ -60,7 +66,7 @@ function initCartPage() {
         DLF_UI.toast("API indisponível. Pedido pronto e enviado pelo WhatsApp.");
       }
 
-      DLF_UI.openWhatsAppChat(DLF_CART.buildMessage(notes), { sameTab: true });
+      DLF_UI.openWhatsAppChat(DLF_CART.buildMessage(notes, customer), { sameTab: true });
     } catch (error) {
       console.error(error);
       DLF_UI.toast("Não foi possível iniciar o checkout. Tente novamente.");

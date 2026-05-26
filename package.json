@@ -1,0 +1,12 @@
+{
+  "name": "dlf-frontend",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "build": "node scripts/generate-runtime-config.js",
+    "vercel-build": "node scripts/generate-runtime-config.js"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

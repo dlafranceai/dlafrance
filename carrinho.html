@@ -27,7 +27,35 @@
   </header>
   <main>
 <section class="container page-title reveal"><nav class="breadcrumb"><a href="index.html">Início</a><span>/</span><strong>Carrinho</strong></nav><h1>Carrinho</h1><p>Revise os produtos antes de enviar o pedido para o WhatsApp da loja.</p></section>
-<section class="container cart-page"><div class="cart-list reveal"><div class="shipping-progress" data-page-shipping></div><div data-cart-page-items></div><div class="empty-state" data-cart-empty hidden><strong>Seu carrinho está vazio.</strong><p>Escolha um perfume no catálogo.</p></div></div><aside class="cart-summary reveal"><h2>Resumo</h2><div class="summary-line"><span>Subtotal</span><strong data-page-subtotal>R$ 0,00</strong></div><div class="summary-line"><span>Frete</span><strong>A combinar</strong></div><div class="summary-total"><span>Total</span><strong data-page-total>R$ 0,00</strong></div><label class="shipping-card">Observações<textarea rows="4" data-notes placeholder="Retirada, entrega, presente, bairro..."></textarea></label><button class="btn primary full" data-checkout>Finalizar pelo WhatsApp</button><button class="btn line full" data-clear-cart>Limpar carrinho</button><a class="btn line full" href="produtos.html">Continuar comprando</a></aside></section>
+<section class="container cart-page">
+  <div class="cart-list reveal">
+    <div class="shipping-progress" data-page-shipping></div>
+    <div data-cart-page-items></div>
+    <div class="empty-state" data-cart-empty hidden><strong>Seu carrinho está vazio.</strong><p>Escolha um perfume no catálogo.</p></div>
+  </div>
+  <aside class="cart-summary reveal">
+    <h2>Resumo</h2>
+    <div class="summary-line"><span>Subtotal</span><strong data-page-subtotal>R$ 0,00</strong></div>
+    <div class="summary-line"><span>Frete</span><strong>A combinar</strong></div>
+    <div class="summary-total"><span>Total</span><strong data-page-total>R$ 0,00</strong></div>
+
+    <label class="shipping-card">Nome
+      <input type="text" data-customer-name placeholder="Seu nome (opcional)">
+    </label>
+
+    <label class="shipping-card">Telefone
+      <input type="tel" data-customer-phone placeholder="Telefone com DDI (opcional)">
+    </label>
+
+    <label class="shipping-card">Observações
+      <textarea rows="4" data-notes placeholder="Retirada, entrega, presente, bairro..."></textarea>
+    </label>
+
+    <button class="btn primary full" data-checkout>Finalizar pelo WhatsApp</button>
+    <button class="btn line full" data-clear-cart>Limpar carrinho</button>
+    <a class="btn line full" href="produtos.html">Continuar comprando</a>
+  </aside>
+</section>
 </main>
   <footer class="footer">
     <div class="container footer-inner">

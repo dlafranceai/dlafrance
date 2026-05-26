@@ -75,6 +75,14 @@ app.post('/api/orders', (req, res) => {
   // Recompute subtotal from items (ignore/tolerate client subtotal)
   const subtotalFromItems = items.reduce((sum, item) => sum + item.price * item.quantity, 0);
 
+  const customerRaw = body.customer && typeof body.customer === 'object' ? body.customer : null;
+  const customer = customerRaw
+    ? {
+        name: String(customerRaw.name || '').slice(0, 250),
+        phone: String(customerRaw.phone || '').replace(/\D+/g, '')
+      }
+    : null;
+
   const order = {
     id: `DLF-${Date.now()}`,
     status: 'created',
@@ -82,7 +90,8 @@ app.post('/api/orders', (req, res) => {
     channel: String(body.channel || 'whatsapp').slice(0, 50),
     notes: String(body.notes || '').slice(0, 1000),
     items,
-    subtotal: subtotalFromItems
+    subtotal: subtotalFromItems,
+    customer
   };
 
   return res.status(201).json(order);

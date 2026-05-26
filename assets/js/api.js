@@ -76,19 +76,28 @@ const DLF_API = (() => {
   function sanitizeOrderPayload(payload) {
     const data = payload && typeof payload === "object" ? payload : {};
     const items = Array.isArray(data.items) ? data.items : [];
+    const sanitizedItems = items
+      .map((item) => ({
+        id: String(item.id || ""),
+        name: String(item.name || "").slice(0, 250),
+        quantity: Math.max(1, Math.floor(Number(item.quantity || 1))),
+        price: Number(item.price || 0)
+      }))
+      .filter((item) => item.id && Number.isFinite(item.price));
+
+    const customer = data.customer && typeof data.customer === 'object'
+      ? {
+          name: String(data.customer.name || '').slice(0, 250),
+          phone: String(data.customer.phone || '').replace(/\D+/g, '')
+        }
+      : null;
 
     return {
-      items: items
-        .map((item) => ({
-          id: String(item.id || ""),
-          name: String(item.name || ""),
-          quantity: Math.max(1, Math.floor(Number(item.quantity || 1))),
-          price: Number(item.price || 0)
-        }))
-        .filter((item) => item.id),
+      items: sanitizedItems,
       subtotal: Number(data.subtotal || 0),
-      notes: String(data.notes || ""),
-      channel: String(data.channel || "whatsapp")
+      notes: String(data.notes || '').slice(0, 1000),
+      channel: String(data.channel || 'whatsapp'),
+      customer
     };
   }
 
