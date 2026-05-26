@@ -402,4 +402,13 @@ const DLF_UI = (() => {
   };
 })();
 
-document.addEventListener("DOMContentLoaded", DLF_UI.init);
+// Inicializa o UI mesmo que o script seja carregado após o evento DOMContentLoaded
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", DLF_UI.init);
+} else {
+  try {
+    DLF_UI.init();
+  } catch (err) {
+    console.error("Falha ao inicializar DLF_UI:", err);
+  }
+}

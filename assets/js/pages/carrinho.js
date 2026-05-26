@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", () => {
+function initCartPage() {
   const list = DLF_UI.$("[data-cart-page-items]");
   const subtotal = DLF_UI.$("[data-page-subtotal]");
   const total = DLF_UI.$("[data-page-total]");
@@ -117,4 +117,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
     DLF_UI.reveal();
   }
-});
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initCartPage);
+} else {
+  initCartPage();
+}
