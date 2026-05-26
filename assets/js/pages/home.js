@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", async () => {
+async function initHome() {
   const grid = DLF_UI.$("[data-home-products]");
   const featured = DLF_UI.$("[data-featured-card]");
 
@@ -32,4 +32,10 @@ document.addEventListener("DOMContentLoaded", async () => {
     console.error(error);
     grid.innerHTML = '<div class="empty-state span-all"><strong>Ocorreu um erro ao carregar a home.</strong><p>Atualize a página para tentar novamente.</p></div>';
   }
-});
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initHome);
+} else {
+  initHome();
+}

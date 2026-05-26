@@ -9,3 +9,10 @@ npm-debug.log*
 # OS
 .DS_Store
 Thumbs.db
+
+# Environment
+.env
+backend/.env
+
+# Avoid committing runtime config with secrets - keep only the example
+assets/js/runtime-config.js
