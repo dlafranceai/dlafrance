@@ -397,6 +397,7 @@ const DLF_UI = (() => {
     productUrl,
     toast,
     openDrawer,
+    init,
     renderFreeShipping,
     openWhatsAppChat
   };

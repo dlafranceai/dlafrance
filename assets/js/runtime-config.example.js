@@ -2,24 +2,19 @@
 // Não comite `runtime-config.js` no repositório quando houver segredos ou chaves.
 window.DLF_RUNTIME = {
   // Número do WhatsApp no formato DDI + DDD + número (apenas dígitos)
-  whatsappNumber: "",
+  whatsappNumber: "5534999999999",
 
   // Use backend apenas se o servidor estiver disponível
-  useBackend: false,
+  useBackend: true,
 
   // URL base da API. Ex: https://dlf-api.onrender.com
-  apiBaseUrl: "",
+  apiBaseUrl: "https://SEU-BACKEND.onrender.com",
 
-  // Configure endpoints customizados se necessário
+  // Exemplo de endpoints (opcional)
   // endpoints: {
   //   products: "/api/products",
   //   product: "/api/products/:id",
   //   orders: "/api/orders",
   //   shipping: "/api/shipping"
   // }
-};
-window.DLF_RUNTIME = {
-  whatsappNumber: "5534999999999",
-  useBackend: true,
-  apiBaseUrl: "https://SEU-BACKEND.onrender.com"
 };

@@ -119,18 +119,28 @@ const DLF_CART = (() => {
     return isValidWhatsappNumber(sanitizePhone(config.whatsappNumber));
   }
 
-  function buildMessage(notes = "") {
+  function buildMessage(notes = "", customer = {}) {
     const items = read();
 
     if (!items.length) {
       return `Olá! Vim pelo site da ${config.storeName} e gostaria de ajuda para escolher um perfume.`;
     }
 
-    const lines = [
-      `Olá! Vim pelo site da ${config.storeName} e quero fazer este pedido:`,
-      ""
-    ];
+    const lines = [];
+    lines.push(`Olá! Vim pelo site da ${config.storeName} e gostaria de realizar um pedido.`);
+    lines.push("");
 
+    // Customer data
+    const name = String(customer.name || "").trim();
+    const phone = sanitizePhone(customer.phone || "");
+    if (name || phone) {
+      lines.push("Dados do cliente:");
+      if (name) lines.push(`- Nome: ${name}`);
+      if (phone) lines.push(`- Telefone: ${phone}`);
+      lines.push("");
+    }
+
+    lines.push("Itens:");
     items.forEach((item, index) => {
       lines.push(`${index + 1}. ${item.name} (${item.size})`);
       lines.push(`   Quantidade: ${item.quantity}`);
