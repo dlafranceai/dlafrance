@@ -1,6 +1,6 @@
 {
   "outputDirectory": ".",
-  "cleanUrls": false,
+  "cleanUrls": true,
   "trailingSlash": false,
   "headers": [
     {
@@ -11,6 +11,14 @@
           "value": "public, max-age=31536000, immutable"
         }
       ]
+    }
+  ]
+  ,
+  "redirects": [
+    {
+      "source": "/(.*)\\.html",
+      "destination": "/$1",
+      "permanent": true
     }
   ]
 }
