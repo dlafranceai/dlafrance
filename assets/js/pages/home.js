@@ -18,11 +18,11 @@ async function initHome() {
     const featuredProduct = products.find((product) => product.id === "velvet-rose") || products[0];
     if (featured && featuredProduct) {
       featured.innerHTML = `
-        <img src="${DLF_UI.posterImg(featuredProduct)}" alt="${featuredProduct.name}">
+        <img src="${DLF_UI.posterImg(featuredProduct)}" alt="${DLF_UI.escapeHtml(featuredProduct.name)}">
         <div>
           <span class="kicker">Fragrância em destaque</span>
-          <h2>${featuredProduct.name}</h2>
-          <p>${featuredProduct.description || ""}</p>
+          <h2>${DLF_UI.escapeHtml(featuredProduct.name)}</h2>
+          <p>${DLF_UI.escapeHtml(featuredProduct.description || "")}</p>
           <a class="btn primary" href="${DLF_UI.productUrl(featuredProduct)}">Conhecer perfume</a>
         </div>`;
     }

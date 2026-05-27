@@ -13,6 +13,19 @@ const DLF_UI = (() => {
     return image.startsWith("assets/") ? image : `assets/img/produtos/${image}`;
   }
 
+  function escapeHtml(value) {
+    return String(value || "").replace(/[&<>\"']/g, (ch) => {
+      switch (ch) {
+        case '&': return '&amp;';
+        case '<': return '&lt;';
+        case '>': return '&gt;';
+        case '"': return '&quot;';
+        case "'": return '&#39;';
+        default: return ch;
+      }
+    });
+  }
+
   function posterImg(product) {
     const poster = String(product?.poster || product?.image || "").trim();
     if (!poster) return "assets/img/brand/mark.svg";
@@ -94,21 +107,21 @@ const DLF_UI = (() => {
     const installments = Math.max(1, Number(product.installments || 1));
 
     return `
-      <article class="product-card reveal" data-product-id="${product.id}">
-        <a class="product-card__media" href="${productUrl(product)}" aria-label="Ver ${product.name}">
-          <img src="${productImg(product)}" alt="${product.name}" loading="lazy">
-          <span>${product.badge || "Coleção"}</span>
+      <article class="product-card reveal" data-product-id="${escapeHtml(product.id)}">
+        <a class="product-card__media" href="${productUrl(product)}" aria-label="Ver ${escapeHtml(product.name)}">
+          <img src="${productImg(product)}" alt="${escapeHtml(product.name)}" loading="lazy">
+          <span>${escapeHtml(product.badge || "Coleção")}</span>
         </a>
         <div class="product-card__body">
-          <div class="product-card__meta">${product.category} · ${product.family}</div>
-          <h3><a href="${productUrl(product)}">${product.name}</a></h3>
-          <p>${product.mood || ""}</p>
-          <div class="product-card__tags">${tags.slice(0, 3).map((tag) => `<span>${tag}</span>`).join("")}</div>
+          <div class="product-card__meta">${escapeHtml(product.category)} · ${escapeHtml(product.family)}</div>
+          <h3><a href="${productUrl(product)}">${escapeHtml(product.name)}</a></h3>
+          <p>${escapeHtml(product.mood || "")}</p>
+          <div class="product-card__tags">${tags.slice(0, 3).map((tag) => `<span>${escapeHtml(tag)}</span>`).join("")}</div>
           <div class="product-card__price">${old}<strong>${DLF_CART.format(product.price)}</strong></div>
           <small>${installments}x de ${DLF_CART.format(product.price / installments)} sem juros</small>
           <div class="product-card__actions">
-            <button type="button" data-buy="${product.id}">Comprar</button>
-            <button type="button" class="ghost" data-quick="${product.id}">Espiar</button>
+            <button type="button" data-buy="${escapeHtml(product.id)}">Comprar</button>
+            <button type="button" class="ghost" data-quick="${escapeHtml(product.id)}">Espiar</button>
           </div>
         </div>
       </article>`;
@@ -133,10 +146,10 @@ const DLF_UI = (() => {
   function drawerItem(item) {
     return `
       <article class="drawer-item">
-        <img src="${item.image}" alt="${item.name}">
+        <img src="${item.image}" alt="${escapeHtml(item.name)}">
         <div>
-          <h3>${item.name}</h3>
-          <p>${item.size} · ${item.category}</p>
+          <h3>${escapeHtml(item.name)}</h3>
+          <p>${escapeHtml(item.size)} · ${escapeHtml(item.category)}</p>
           <strong>${DLF_CART.format(item.price * item.quantity)}</strong>
           <div class="drawer-qty">
             <button type="button" data-dec="${item.id}" aria-label="Diminuir quantidade">−</button>
@@ -215,14 +228,14 @@ const DLF_UI = (() => {
 
     modal.innerHTML = `
       <button type="button" class="quick-close" data-close aria-label="Fechar">×</button>
-      <img src="${posterImg(product)}" alt="${product.name}">
+      <img src="${posterImg(product)}" alt="${escapeHtml(product.name)}">
       <div>
-        <span class="kicker">${product.category} · ${product.family}</span>
-        <h2>${product.name}</h2>
-        <p>${product.description || ""}</p>
-        <div class="note-row">${tags.map((tag) => `<span>${tag}</span>`).join("")}</div>
+        <span class="kicker">${escapeHtml(product.category)} · ${escapeHtml(product.family)}</span>
+        <h2>${escapeHtml(product.name)}</h2>
+        <p>${escapeHtml(product.description || "")}</p>
+        <div class="note-row">${tags.map((tag) => `<span>${escapeHtml(tag)}</span>`).join("")}</div>
         <div class="modal-price"><strong>${DLF_CART.format(product.price)}</strong><small>${installments}x de ${DLF_CART.format(product.price / installments)} sem juros</small></div>
-        <button type="button" class="btn primary" data-buy="${product.id}">Adicionar ao carrinho</button>
+        <button type="button" class="btn primary" data-buy="${escapeHtml(product.id)}">Adicionar ao carrinho</button>
         <a class="btn line" href="${productUrl(product)}">Ver página do produto</a>
       </div>`;
 
@@ -299,6 +312,15 @@ const DLF_UI = (() => {
   function setupHeader() {
     $("[data-menu-toggle]")?.addEventListener("click", () => $("[data-nav]")?.classList.toggle("is-open"));
     $("[data-cart-open]")?.addEventListener("click", openDrawer);
+
+    // Delegated handler to ensure cart opens even if the element is dynamically replaced
+    document.addEventListener('click', (event) => {
+      const cartTrigger = event.target.closest('[data-cart-open]');
+      if (cartTrigger) {
+        event.preventDefault();
+        openDrawer();
+      }
+    });
 
     $$("[data-close-drawer], [data-overlay]").forEach((el) => {
       el.addEventListener("click", closeDrawer);
@@ -398,6 +420,7 @@ const DLF_UI = (() => {
     toast,
     openDrawer,
     init,
+    escapeHtml,
     renderFreeShipping,
     openWhatsAppChat
   };
