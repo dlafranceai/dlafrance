@@ -2,7 +2,7 @@
   const defaultConfig = {
     storeName: "D'La France",
     whatsappNumber: "5534996829438",
-    whatsappGreeting: "Olá! Vim pelo site da D'La France e gostaria de ajuda para escolher um perfume.",
+    whatsappGreeting: "Branch Tests",
     currency: "BRL",
     locale: "pt-BR",
     freeShippingFrom: 400,
