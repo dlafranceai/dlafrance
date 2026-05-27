@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     if (filters.sort && filters.sort !== "default") nextParams.set("ordem", filters.sort);
 
     const query = nextParams.toString();
-    const nextUrl = query ? `produtos.html?${query}` : "produtos.html";
+    const nextUrl = query ? `/produtos?${query}` : "/produtos";
     history.replaceState({}, "", nextUrl);
   };
 
@@ -74,7 +74,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     clearButton.addEventListener("click", () => {
       form.reset();
-      history.replaceState({}, "", "produtos.html");
+      history.replaceState({}, "", "/produtos");
       render();
     });
 

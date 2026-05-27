@@ -36,7 +36,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         </div>
       </section>
       <aside class="detail-info reveal">
-        <nav class="breadcrumb"><a href="index.html">Início</a><span>/</span><a href="produtos.html">Perfumes</a><span>/</span><strong>${product.name}</strong></nav>
+        <nav class="breadcrumb"><a href="/">Início</a><span>/</span><a href="/produtos">Perfumes</a><span>/</span><strong>${product.name}</strong></nav>
         <span class="kicker">${product.category} · ${product.family}</span>
         <h1>${product.name}</h1>
         <p>${product.subtitle || ""}</p>

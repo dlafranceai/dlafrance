@@ -1,6 +1,6 @@
 window.DLF_RUNTIME = {
 
-  whatsappNumber: "5534996829438",
+  whatsappNumber: "",
 
   // Usar backend apenas se o servidor estiver disponível
   useBackend: true,
