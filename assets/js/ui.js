@@ -33,7 +33,7 @@ const DLF_UI = (() => {
   }
 
   function productUrl(product) {
-    return `produto.html?id=${encodeURIComponent(product.id)}`;
+    return `/produto?id=${encodeURIComponent(product.id)}`;
   }
 
   function normalize(value) {
@@ -64,16 +64,16 @@ const DLF_UI = (() => {
     const links = $$("[data-nav] a");
     if (!links.length) return;
 
-    const currentPath = (location.pathname.split("/").pop() || "index.html").toLowerCase();
+    const currentPath = (location.pathname.split("/").pop() || "index").toLowerCase();
     const currentQuery = location.search ? location.search.slice(1) : "";
     const currentRef = currentQuery ? `${currentPath}?${currentQuery}` : currentPath;
 
     let activeLink = links.find((link) => normalizeHref(link.getAttribute("href")).toLowerCase() === currentRef);
 
-    if (!activeLink && currentPath === "produto.html") {
+    if (!activeLink && currentPath === "produto") {
       activeLink = links.find((link) => {
         const { path, query } = splitHref(normalizeHref(link.getAttribute("href")).toLowerCase());
-        return path === "produtos.html" && !query;
+        return path === "produtos" && !query;
       });
     }
 
@@ -348,7 +348,7 @@ const DLF_UI = (() => {
     $("[data-search-form]")?.addEventListener("submit", (event) => {
       event.preventDefault();
       const q = new FormData(event.currentTarget).get("q") || "";
-      location.href = `produtos.html?busca=${encodeURIComponent(String(q))}`;
+      location.href = `/produtos?busca=${encodeURIComponent(String(q))}`;
     });
 
     highlightCurrentNav();

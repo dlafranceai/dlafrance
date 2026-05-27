@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="pt-BR">
+
 <head>
   <title>Perfumes | D'La France</title>
   <meta name="description" content="Catálogo D'La France com produtos reais, filtros, carrinho e WhatsApp.">
@@ -9,44 +10,125 @@
   <meta name="theme-color" content="#080808">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
+
 <body>
-  <div class="announcement"><div class="container"><span>5x sem juros</span><span>Frete grátis acima de R$ 400</span><span>Consultoria pelo WhatsApp</span></div></div>
+  <div class="announcement">
+    <div class="container"><span>5x sem juros</span><span>Frete grátis acima de R$ 400</span><span>Consultoria pelo
+        WhatsApp</span></div>
+  </div>
   <header class="header">
     <div class="container header-inner">
-      <a class="logo" href="index.html" aria-label="D'La France"><strong>D'La France</strong><span>Eau de Parfum</span></a>
-      <button class="menu-toggle" data-menu-toggle aria-label="Abrir menu"><span></span><span></span><span></span></button>
+      <a class="logo" href="/" aria-label="D'La France"><strong>D'La France</strong><span>Eau de
+          Parfum</span></a>
+      <button class="menu-toggle" data-menu-toggle
+        aria-label="Abrir menu"><span></span><span></span><span></span></button>
       <nav class="nav" data-nav>
-        <a href="index.html">Início</a><a href="produtos.html">Perfumes</a><a href="produtos.html?categoria=Femininos">Femininos</a><a href="produtos.html?categoria=Masculinos">Masculinos</a><a href="sobre.html">A marca</a>
+        <a href="/">Início</a><a href="/produtos">Perfumes</a><a
+          href="/produtos?categoria=Femininos">Femininos</a><a
+          href="/produtos?categoria=Masculinos">Masculinos</a><a href="/sobre">A marca</a>
       </nav>
-      <div class="header-actions"><a class="header-action" href="#" data-whatsapp><span>WhatsApp</span></a><button class="header-action" data-cart-open><span>Carrinho</span><b data-cart-count>0</b></button></div>
+      <div class="header-actions"><a class="header-action" href="#" data-whatsapp><span>WhatsApp</span></a><button
+          class="header-action" data-cart-open><span>Carrinho</span><b data-cart-count>0</b></button></div>
     </div>
-    <div class="search-strip"><form class="container" data-search-form><input type="search" name="q" placeholder="Buscar por perfume, nota ou estilo"><button type="submit">Buscar</button></form></div>
+    <div class="search-strip">
+      <form class="container" data-search-form><input type="search" name="q"
+          placeholder="Buscar por perfume, nota ou estilo"><button type="submit">Buscar</button></form>
+    </div>
   </header>
   <main>
-<section class="container page-title reveal"><nav class="breadcrumb"><a href="index.html">Início</a><span>/</span><strong>Perfumes</strong></nav><h1>Catálogo</h1><p>Filtre por estilo, categoria ou família olfativa. O carrinho está pronto para integração com backend, mas já finaliza pelo WhatsApp.</p></section>
-<section class="container catalog-layout">
-  <aside class="filters panel reveal"><form data-filter-form><h2>Filtrar coleção</h2><label>Buscar<input name="search" type="search" placeholder="Velvet, âmbar, floral..."></label><label>Categoria<select name="category"><option value="">Todas</option><option value="Femininos">Femininos</option><option value="Masculinos">Masculinos</option></select></label><label>Família / nota<select name="family"><option value="">Todas</option><option value="floral">Floral</option><option value="amadeirado">Amadeirado</option><option value="gourmand">Gourmand</option><option value="especiado">Especiado</option><option value="aldeídico">Aldeídico</option></select></label><label>Ordenar<select name="sort"><option value="default">Destaques</option><option value="price_asc">Menor preço</option><option value="price_desc">Maior preço</option><option value="name">Nome A-Z</option></select></label><button type="button" class="btn line full" data-clear>Limpar filtros</button></form></aside>
-  <div><div class="results-bar panel reveal"><span><strong data-count>0</strong> perfumes encontrados</span><span>Frete grátis acima de R$ 400</span></div><div class="product-grid" data-products-grid></div></div>
-</section>
-</main>
+    <section class="container page-title reveal">
+      <nav class="breadcrumb"><a href="/">Início</a><span>/</span><strong>Perfumes</strong></nav>
+      <h1>Catálogo</h1>
+      <p>Filtre por estilo, categoria ou família olfativa. O carrinho está pronto para integração com backend, mas já
+        finaliza pelo WhatsApp.</p>
+    </section>
+    <section class="container catalog-layout">
+      <aside class="filters panel reveal">
+        <form data-filter-form>
+          <h2>Filtrar coleção</h2><label>Buscar<input name="search" type="search"
+              placeholder="Velvet, âmbar, floral..."></label><label>Categoria<select name="category">
+              <option value="">Todas</option>
+              <option value="Femininos">Femininos</option>
+              <option value="Masculinos">Masculinos</option>
+            </select></label><label>Família / nota<select name="family">
+              <option value="">Todas</option>
+              <option value="floral">Floral</option>
+              <option value="amadeirado">Amadeirado</option>
+              <option value="gourmand">Gourmand</option>
+              <option value="especiado">Especiado</option>
+              <option value="aldeídico">Aldeídico</option>
+            </select></label><label>Ordenar<select name="sort">
+              <option value="default">Destaques</option>
+              <option value="price_asc">Menor preço</option>
+              <option value="price_desc">Maior preço</option>
+              <option value="name">Nome A-Z</option>
+            </select></label><button type="button" class="btn line full" data-clear>Limpar filtros</button>
+        </form>
+      </aside>
+      <div>
+        <div class="results-bar panel reveal"><span><strong data-count>0</strong> perfumes encontrados</span><span>Frete
+            grátis acima de R$ 400</span></div>
+        <div class="product-grid" data-products-grid></div>
+      </div>
+    </section>
+  </main>
   <footer class="footer">
     <div class="container footer-inner">
-      <div><h2>D'La France</h2><p>Perfumaria com atmosfera escura, elegante e sensorial. Escolha o perfume, monte o carrinho e finalize com atendimento humano pelo WhatsApp.</p></div>
-      <div><h3>Comprar</h3><a href="produtos.html">Todos os perfumes</a><a href="produtos.html?categoria=Femininos">Femininos</a><a href="produtos.html?categoria=Masculinos">Masculinos</a><a href="carrinho.html">Carrinho</a></div>
-      <div><h3>Atendimento</h3><a href="#" data-whatsapp>WhatsApp</a><a href="mailto:contato@dlafrance.com.br">contato@dlafrance.com.br</a><p>Monte Carmelo - MG</p></div>
-      <div><h3>Termos de Contrato</h3><p>future</p></div>
+      <div>
+        <h2>D'La France</h2>
+        <p>Perfumaria com atmosfera escura, elegante e sensorial. Escolha o perfume, monte o carrinho e finalize com
+          atendimento humano pelo WhatsApp.</p>
+      </div>
+      <div>
+        <h3>Comprar</h3><a href="/produtos">Todos os perfumes</a><a
+          href="/produtos?categoria=Femininos">Femininos</a><a
+          href="/produtos?categoria=Masculinos">Masculinos</a><a href="/carrinho">Carrinho</a>
+      </div>
+      <div>
+        <h3>Atendimento</h3><a href="#" data-whatsapp>WhatsApp</a><a
+          href="mailto:contato@dlafrance.com.br">contato@dlafrance.com.br</a>
+        <p>Monte Carmelo - MG</p>
+      </div>
+      <div>
+        <h3>Termos de Contrato</h3>
+        <p>future</p>
+      </div>
     </div>
-    <div class="footer-bottom"><div class="container"><span>© 2026 D'La France.</span><span>Site preparado para vendas via WhatsApp e backend futuro.</span></div></div>
+    <div class="footer-bottom">
+      <div class="container"><span>© 2026 D'La France.</span><span>Direitos Reservados.</span></div>
+    </div>
+    </div>
+    </div>
   </footer>
   <aside class="drawer" data-drawer>
-    <div class="drawer-header"><h2>Carrinho</h2><button class="quick-close" data-close-drawer>×</button></div>
-    <div class="drawer-body"><div class="shipping-progress" data-drawer-shipping></div><div data-drawer-items></div></div>
-    <div class="drawer-footer"><div class="drawer-total"><span>Subtotal</span><strong data-drawer-subtotal>R$ 0,00</strong></div><a class="btn line full" href="carrinho.html">Ver carrinho</a><button class="btn primary full" data-drawer-checkout>Finalizar pelo WhatsApp</button></div>
+    <div class="drawer-header">
+      <h2>Carrinho</h2><button class="quick-close" data-close-drawer>×</button>
+    </div>
+    <div class="drawer-body">
+      <div class="shipping-progress" data-drawer-shipping></div>
+      <div data-drawer-items></div>
+    </div>
+    <div class="drawer-footer">
+      <div class="drawer-total"><span>Subtotal</span><strong data-drawer-subtotal>R$ 0,00</strong></div><a
+        class="btn line full" href="/carrinho">Ver carrinho</a><button class="btn primary full"
+        data-drawer-checkout>Finalizar pelo WhatsApp</button>
+    </div>
   </aside>
-  <div class="quick-view" data-quick-view></div><div class="overlay" data-overlay></div><div class="toast" data-toast></div>
-  <script src="assets/js/runtime-config.js"></script><script src="assets/js/config.js"></script><script src="assets/js/products.js"></script><script src="assets/js/api.js"></script><script src="assets/js/cart.js"></script><script src="assets/js/ui.js"></script><script src="assets/js/pages/produtos.js"></script>
+  <div class="quick-view" data-quick-view></div>
+  <div class="overlay" data-overlay></div>
+  <div class="toast" data-toast></div>
+  <script src="assets/js/runtime-config.js"></script>
+  <script src="assets/js/config.js"></script>
+  <script src="assets/js/products.js"></script>
+  <script src="assets/js/api.js"></script>
+  <script src="assets/js/cart.js"></script>
+  <script src="assets/js/ui.js"></script>
+  <script src="assets/js/pages/produtos.js"></script>
 </body>
+
 </html>
